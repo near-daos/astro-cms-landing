@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "usecases",
+  "collectionName": "purposes",
   "info": {
-    "singularName": "usecase",
-    "pluralName": "usecases",
-    "displayName": "Home/Usecases",
+    "singularName": "purpose",
+    "pluralName": "purposes",
+    "displayName": "Home/Purposes",
     "description": ""
   },
   "options": {
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "company": {
+    "title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -25,7 +25,7 @@
       "type": "string",
       "required": true
     },
-    "type": {
+    "text": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -34,7 +34,7 @@
       "type": "string",
       "required": true
     },
-    "logo": {
+    "svgIcon": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -46,28 +46,6 @@
           "localized": false
         }
       }
-    },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "link": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string",
-      "required": true
     },
     "active": {
       "pluginOptions": {
@@ -85,9 +63,9 @@
         }
       },
       "type": "integer",
-      "required": true,
       "min": 0,
-      "default": 0
+      "default": 0,
+      "required": true
     }
   }
 }
