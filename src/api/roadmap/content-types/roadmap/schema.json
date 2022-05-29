@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "usecases",
+  "collectionName": "roadmaps",
   "info": {
-    "singularName": "usecase",
-    "pluralName": "usecases",
-    "displayName": "Home/Usecases",
+    "singularName": "roadmap",
+    "pluralName": "roadmaps",
+    "displayName": "Mission/Roadmap",
     "description": ""
   },
   "options": {
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "company": {
+    "name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -25,7 +25,7 @@
       "type": "string",
       "required": true
     },
-    "type": {
+    "term": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -34,40 +34,40 @@
       "type": "string",
       "required": true
     },
-    "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
+    "text": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
-      }
+      },
+      "type": "string",
+      "required": true
     },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "link": {
+    "status": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "string",
-      "required": true
+      "type": "enumeration",
+      "enum": [
+        "passed",
+        "active",
+        "upcoming"
+      ],
+      "required": true,
+      "default": "upcoming"
+    },
+    "sortWeight": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0
     },
     "active": {
       "pluginOptions": {
@@ -77,17 +77,6 @@
       },
       "type": "boolean",
       "required": true
-    },
-    "sortWeight": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "integer",
-      "required": true,
-      "min": 0,
-      "default": 0
     }
   }
 }

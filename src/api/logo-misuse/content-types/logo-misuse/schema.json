@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "usecases",
+  "collectionName": "logo_misuses",
   "info": {
-    "singularName": "usecase",
-    "pluralName": "usecases",
-    "displayName": "Home/Usecases",
+    "singularName": "logo-misuse",
+    "pluralName": "logo-misuses",
+    "displayName": "PressKit/Logo-Misuse",
     "description": ""
   },
   "options": {
@@ -16,16 +16,16 @@
     }
   },
   "attributes": {
-    "company": {
+    "code": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "string",
       "required": true
     },
-    "type": {
+    "text": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -35,48 +35,25 @@
       "required": true
     },
     "logo": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
       "allowedTypes": [
         "images"
       ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "icon": {
       "type": "media",
       "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "link": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "string",
       "required": true
     },
-    "active": {
+    "offset": {
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       },
-      "type": "boolean",
-      "required": true
+      "type": "string"
     },
     "sortWeight": {
       "pluginOptions": {
@@ -88,6 +65,15 @@
       "required": true,
       "min": 0,
       "default": 0
+    },
+    "active": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "required": true
     }
   }
 }
