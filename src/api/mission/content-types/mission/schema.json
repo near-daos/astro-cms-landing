@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
-  "collectionName": "features",
+  "kind": "singleType",
+  "collectionName": "missions",
   "info": {
-    "singularName": "feature",
-    "pluralName": "features",
-    "displayName": "Home/Features",
+    "singularName": "mission",
+    "pluralName": "missions",
+    "displayName": "About/Mission",
     "description": ""
   },
   "options": {
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "title": {
+    "category": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -25,46 +25,40 @@
       "type": "string",
       "required": true
     },
-    "text": {
+    "headerMission": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "text",
+      "type": "string",
       "required": true
     },
-    "svgIcon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
+    "introText": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
-        }
-      }
-    },
-    "sortWeight": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "type": "integer",
-      "min": 0,
-      "required": true,
-      "default": 0
+      "type": "richtext",
+      "required": true
     },
-    "active": {
+    "headerSupport": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
-      "type": "boolean",
+      "type": "string",
+      "required": true
+    },
+    "headerRoadmap": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
       "required": true
     }
   }
