@@ -87,6 +87,6 @@ jobs:
           set -x
           export CHART_FOLDER=deployment/app-chart
           helm lint $CHART_FOLDER
-          helm --namespace $DEPLOYMENT_NAMESPACE upgrade --install --create-namespace --atomic $APP_NAME $CHART_FOLDER \
+          helm --namespace $DEPLOYMENT_NAMESPACE upgrade --install --atomic $APP_NAME $CHART_FOLDER \
             --set image.tag=$DOCKER_ENV_TAG \
             --set ingress.host=${K8S_INGRESS_HOST}
