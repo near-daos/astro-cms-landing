@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: astro-landing-strapi-configmap
+data:
+  DATABASE_FILENAME: /data/data.db
+{{- range $k, $v := .Values.environment }}
+  {{ $k }}: "{{ $v }}"
+{{- end }}
