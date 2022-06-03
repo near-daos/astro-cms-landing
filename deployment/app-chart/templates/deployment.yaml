@@ -36,13 +36,9 @@ spec:
             name: database
           envFrom:
           - configMapRef:
-              name: sputnik-v2-configmap
-          - configMapRef:
               name: astro-landing-strapi-configmap
           - configMapRef:
               name: {{ .Release.Name }}-version
-          - secretRef:
-              name: astro-landing-strapi-db-secret
           - secretRef:
               name: astro-landing-strapi-s3-secret
           resources:
