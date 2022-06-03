@@ -1,3 +1,4 @@
+{{- if .Values.pvc }}
 {{- if .Values.pvc.class }}
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -11,4 +12,5 @@ spec:
       storage: "{{ .Values.pvc.size }}"
   storageClassName: "{{ .Values.pvc.class }}"
   volumeMode: Filesystem
+{{- end }}
 {{- end }}
