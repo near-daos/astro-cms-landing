@@ -7,8 +7,7 @@ on:
         description: Specify environment to run on. Valid values are development, production
   push:
     branches:
-    - develop
-    - staging
+    - master
     tags:
     - "**"
 
@@ -18,6 +17,9 @@ env:
   AWS_ECR_URL: ${{ secrets.AWS_ECR_URL }}
   EKS_CLUSTER_NAME: ${{ secrets.EKS_CLUSTER_NAME }}
   KUBE_CONFIG_DATA:  ${{ secrets.KUBE_CONFIG_DATA }}
+  HELM_APP_KEYS: ${{ secrets.HELM_APP_KEYS }}
+  HELM_API_TOKEN_SALT: ${{ secrets.HELM_API_TOKEN_SALT }}
+  HELM_ADMIN_JWT_SECRET: ${{ secrets.HELM_ADMIN_JWT_SECRET }}
 
 jobs:
   get-environment:
@@ -34,10 +36,7 @@ jobs:
         if [[ "${{ github.ref }}" =~ ^refs/tags.* ]]
         then
           echo "::set-output name=environment::production"
-        elif [[ "${{ github.ref }}" =~ ^refs/heads/staging ]]
-        then
-          echo "::set-output name=environment::staging"
-        elif [[ "${{ github.ref }}" =~ ^refs/heads/develop ]]
+        elif [[ "${{ github.ref }}" =~ ^refs/heads/master ]]
         then
           echo "::set-output name=environment::develop"
         fi

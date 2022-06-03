@@ -33,9 +33,6 @@ spec:
             - name: http
               containerPort: {{ .Values.container.internalPort }}
               protocol: TCP
-          volumeMounts:
-          - mountPath: /data
-            name: database
           envFrom:
           - configMapRef:
               name: astro-landing-strapi-configmap
@@ -43,6 +40,8 @@ spec:
               name: {{ .Release.Name }}-version
           - secretRef:
               name: astro-landing-strapi-s3-secret
+          - secretRef:
+              name: astro-landing-strapi-db-secret
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
@@ -57,7 +56,3 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      volumes:
-      - name: database
-        persistentVolumeClaim:
-          claimName: {{ include "astro-landing-strapi.fullname" $ }}

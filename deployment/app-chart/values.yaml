@@ -60,9 +60,5 @@ version:
   commit: latest
   branch: develop
 
-pvc:
-  class: gp3
-  size: 5Gi
-
 environment:
   PORT: *port
