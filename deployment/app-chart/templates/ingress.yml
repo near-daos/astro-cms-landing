@@ -10,7 +10,7 @@ spec:
   tls:
   - hosts:
     - {{ .Values.ingress.host }}
-    secretName: {{ include "astro-langing-strapi.fullname" . }}-tls-secret
+    secretName: {{ include "astro-landing-strapi.fullname" . }}-tls-secret
   rules:
   - host: {{ .Values.ingress.host }}
     http:
