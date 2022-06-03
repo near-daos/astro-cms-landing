@@ -1,0 +1,47 @@
+name: Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        description: Specify environment to run on. Valid values are development, production
+      tag:
+        required: true
+        description: Docker tag to deploy. Valid values are "latest", "<branch>-latest", "<commit_sha>", "<environment>-<commit_sha>". Exact values can be found in "Docker Build Publish" step of "Build Deploy" job.
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  EKS_CLUSTER_NAME: ${{ secrets.EKS_CLUSTER_NAME }}
+  KUBE_CONFIG_DATA:  ${{ secrets.KUBE_CONFIG_DATA }}
+  HELM_APP_KEYS: ${{ secrets.HELM_APP_KEYS }}
+  HELM_API_TOKEN_SALT: ${{ secrets.HELM_API_TOKEN_SALT }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    environment:
+      name: ${{ github.event.inputs.environment }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set Environment
+      run: |
+        echo DOCKER_ENV_TAG=${{ github.event.inputs.tag }} >> $GITHUB_ENV
+        cat ".github/env.common" >>$GITHUB_ENV
+        cat ".github/env.${{ github.event.inputs.environment }}" >>$GITHUB_ENV
+
+    - name: helm deploy
+      uses: koslib/helm-eks-action@v1.8.0
+      with:
+        command: |
+          set -x
+          echo "environment:" > env-values.yaml
+          env | grep '^HELM' | sed -e 's/^HELM_//' -e 's/=/: /' -e 's/^/  /' >> env-values.yaml
+          cat env-values.yaml
+          export CHART_FOLDER=deployment/app-chart
+          helm lint $CHART_FOLDER
+          helm --namespace $DEPLOYMENT_NAMESPACE upgrade --install --atomic $APP_NAME $CHART_FOLDER \
+            -f env-values.yaml \
+            --set image.tag=$DOCKER_ENV_TAG \
+            --set ingress.host=${K8S_INGRESS_HOST}
