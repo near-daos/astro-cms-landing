@@ -16,6 +16,11 @@ Main features:
 - Database: **[PostgreSQL](https://www.postgresql.org/)**
 - Code quality: **[Eslint](https://eslint.org/), [Prettier](https://prettier.io/)**
 
+## Links
+
+- Dev: **[strapi.landing.dev.app.astrodao.com](https://strapi.landing.dev.app.astrodao.com/)**
+- Production: 
+
 ---
 
 ## Getting Started
