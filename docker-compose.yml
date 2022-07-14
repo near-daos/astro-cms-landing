@@ -21,6 +21,8 @@ services:
       - "1337:1337"
     depends_on:
       - db
+    volumes:
+      - ./src/api:/app/src/api
 
   db:
     image: postgres:14-alpine
