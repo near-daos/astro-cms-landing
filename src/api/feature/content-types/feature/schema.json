@@ -66,6 +66,15 @@
       },
       "type": "boolean",
       "required": true
+    },
+    "animationData": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "json",
+      "required": true
     }
   }
 }
