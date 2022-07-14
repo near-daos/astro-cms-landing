@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  strapi:
+    build: .
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_NAME: strapi
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: strapi
+      DATABASE_PASSWORD: strapi
+      ADMIN_JWT_SECRET: secret
+      API_TOKEN_SALT: secret
+      APP_KEYS: secret,secret
+      AWS_S3_BUCKET_NAME: ${AWS_S3_BUCKET_NAME}
+      AWS_S3_ACCESS_KEY_ID: ${AWS_S3_ACCESS_KEY_ID}
+      AWS_S3_ACCESS_SECRET: ${AWS_S3_ACCESS_SECRET}
+      AWS_S3_REGION: ${AWS_S3_REGION}
+    ports:
+      - "1337:1337"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:14-alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=strapi
+      - POSTGRES_USER=strapi
+      - POSTGRES_PASSWORD=strapi
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres: {}
