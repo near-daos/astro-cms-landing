@@ -37,7 +37,7 @@
     "svgIcon": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
@@ -74,7 +74,7 @@
         }
       },
       "type": "json",
-      "required": true
+      "required": false
     }
   }
 }
