@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "displayText": {
-      "type": "string"
-    },
     "localeCode": {
       "type": "string"
     },
@@ -26,11 +23,6 @@
     },
     "active": {
       "type": "boolean",
-      "required": true
-    },
-    "default": {
-      "type": "boolean",
-      "default": false,
       "required": true
     }
   }
