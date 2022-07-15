@@ -16,16 +16,7 @@
     }
   },
   "attributes": {
-    "headerMeet": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
-    "headerVoteFund": {
+    "headerMain": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -137,6 +128,42 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "launchApp": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "launchAppLink": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "createWalletText": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "createWalletUrl": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
         }
       },
       "type": "string",
