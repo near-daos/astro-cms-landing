@@ -34,15 +34,6 @@
       "type": "text",
       "required": true
     },
-    "createDao": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
     "numberDaos": {
       "pluginOptions": {
         "i18n": {
