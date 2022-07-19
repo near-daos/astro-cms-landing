@@ -11,7 +11,7 @@ module.exports = [
             "'self'",
             "data:",
             "blob:",
-            "https://astro-landing-strapi-development.s3.eu-central-1.amazonaws.com",
+            "astro-landing-strapi-development.s3.eu-central-1.amazonaws.com",
           ],
           "media-src": ["'self'", "data:", "blob:"],
           upgradeInsecureRequests: null,
