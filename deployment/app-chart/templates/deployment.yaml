@@ -37,9 +37,9 @@ spec:
           - configMapRef:
               name: {{ .Release.Name }}-version
           - secretRef:
-              name: astro-landing-strapi-s3-secret
+              name: landing-iam-user-secrets
           - secretRef:
-              name: astro-landing-strapi-db-secret
+              name: landing-rds-secrets
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
